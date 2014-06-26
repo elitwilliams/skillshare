@@ -1,0 +1,12 @@
+.jumbotron {
+    background-color: #F0DCDC;
+}
+
+p {
+    color:#5C5C5C;
+}
+
+.success {
+    text-align:center;
+    background=grey;
+}
