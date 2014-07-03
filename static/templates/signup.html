@@ -1,11 +1,67 @@
 {% extends 'base.html' %}
 
+{% block jumbotron %}
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Test landing page</h1>
+        <p>This is a test landing page for a web application. Bootstrap, custom
+        css, etc.</p>
+        <p><a class="btn btn-default btn-lg" role="button">Learn more
+        &raquo;</a></p>
+      </div>
+    </div>
+
+{% endblock %}
+
 {% block content %}
 
-    <h3>Join Now!</h3>
-      <form method='POST' action=''> {% csrf_token %}
-	{{form.as_p}}
-	<input type='submit' class='btn btn-success btn-block'>
-      </form>
+        <div class="col-md-3">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
+          tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
+          massa justo sit amet risus. Etiam porta sem malesuada magna mollis
+          euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details
+          &raquo;</a></p>
+        </div>
+        <div class="col-md-3">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
+          tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
+          massa justo sit amet risus. Etiam porta sem malesuada magna mollis
+          euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details
+          &raquo;</a></p>
+       </div>
+        <div class="col-md-3">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
+          egestas eget quam. Vestibulum id ligula porta felis euismod
+          semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+          condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details
+          &raquo;</a></p>
+        </div>
+        <div class="col-md-3">
+	<h2>Donate</h2>
+	  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+	    <input type="hidden" name="cmd" value="_s-xclick">
+	    <input type="hidden" name="hosted_button_id" value="Z3FK4T9ZK62LQ">
+	    <input type="hidden" name="on0" value="Donation Size:">
+	      <select name="os0">
+		<option value="Small">Small $5.00 USD</option>
+		<option value="Medium">Medium $20.00 USD</option>
+		<option value="Large">Large $100.00 USD</option>
+	      </select>
+	    <input type="hidden" name="currency_code" value="USD">
+	    </br></br>
+	    
+	    <input type="submit" class='btn btn-success btn-block'>
+
+	  </form>
+
+        </div>
 
 {% endblock %}    
