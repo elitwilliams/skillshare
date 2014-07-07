@@ -1,5 +1,5 @@
 """
-Django settings for mvp_landing project.
+Django settings for myproject project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -7,6 +7,11 @@ https://docs.djangoproject.com/en/1.6/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
 from email_info import EMAIL_USE_TLS, EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT
 # for gmail or google maps
 EMAIL_USE_TLS = EMAIL_USE_TLS
@@ -15,23 +20,18 @@ EMAIL_HOST_USER = EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
 EMAIL_PORT = EMAIL_PORT
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '=rs&no4a34=-^406g5psc&e)&_jd!g$s_6320ewd%8y*qrm#hn'
+SECRET_KEY = '$2@+i47tjuml1vf!!i*sdfu7ihf#crhcc)v&4+*ylto&r@0%#+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = DEBUG
+TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.streetsafe.co','streetsafe.co']
 
 
 # Application definition
@@ -44,7 +44,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'south',
-    'signups'
+    'signups',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -66,8 +66,10 @@ WSGI_APPLICATION = 'mvp_landing.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mvplandingdbeli',
+        'USER': 'elitwilliams',
+        'PASSWORD': '1240023980ASEASF!@#'
     }
 }
 
@@ -90,17 +92,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Template location
-
-TEMPLATE_DIRS = (
-    os.path.join(os.path.dirname(BASE_DIR), 'static','templates'),
+if not DEBUG:
+    MEDIA_URL = '/media/'
+    STATIC_ROOT = '/home/elitwilliams/webapps/mvp_landing_static'
+    MEDIA_ROOT = '/home/elitwilliams/webapps/mvp_landing_static/media'
+    STATICFILES_DIRS = (
+        '/home/elitwilliams/webapps/mvp_landing_static/static',
+    )
+    TEMPLATE_DIRS = (
+    '/home/elitwilliams/webapps/mvp_landing_static/templates'
     # /Users/eliwilliams/projects/skillshare/static/templates
 )
-
-if DEBUG:
-    MEDIA_URL = '/media/'
-    STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static','static-only')
-    MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static','media')
-    STATICFILES_DIRS = (
-        os.path.join(os.path.dirname(BASE_DIR), 'static','static'),
-        )
